@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "dca8e1e1-027d-4a86-b71b-96a886aafb43",
+		"name": "gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36764607"
+	},
+	"item": [
+		{
+			"name": "paymentgatewaySubmitAction",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "gatewayid",
+						"value": "sha-f2e9823a-6db0-48aa-8642-d6f1c661cd2c",
+						"type": "text"
+					},
+					{
+						"key": "sandbox",
+						"value": "false",
+						"type": "text"
+					},
+					{
+						"key": "appsecret",
+						"value": "c2852b9e-0d21-40fc-9697-d44a33fa89af",
+						"type": "text"
+					},
+					{
+						"key": "appkey",
+						"value": "hYgJYTLvp5vbot30SrwA",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "namelive",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "sha-3-UTcNnWCLVVTyx2qE7v4QMDFeg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"currency\": \"USD\",\r\n    \"amount\": \"1500\",\r\n    \"name\": \"Masud Rahman\",\r\n    \"email\": \"shataj@gmail.com\",\r\n    \"mobile\": \"01700000000\",\r\n    \"Address\": \"Mirpur, Dhaka\",\r\n    \"opt_value_a\" : \"\",\r\n    \"opt_value_b\" : \"\",\r\n    \"transactionId\" : \"42805315-6cc7-fgd4-a1da-d8993137d0101\",\r\n    \"orderId\":\"42805315-6cc7-fgd4-a1da-d8993137d0101\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://pay.shataj.com/api/v1/user/payment-system",
+					"protocol": "http",
+					"host": [
+						"pay",
+						"shataj",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"payment-system"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
