@@ -23,7 +23,7 @@ To create an **interactive, terminal-based dialogue** where the user defines nam
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/PyProjects.git
+   git clone https://github.com/moscoder76/PyProjects.git
 Navigate to the project directory:
 
 bash
