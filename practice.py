@@ -1,151 +1,177 @@
 import random
-passlen = int(input("enter the length of password"))
-s="abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()?"
-p = "".join(random.sample(s,passlen ))
-print(p)
 
-# Variable creation and viewing them in return
-name = "Muzain"
-age = 4.4
-print (f"My name is {name}" )
+name = str(input("Name: "))
+while True:
+    try:
+        age = float(input("Age: "))
+        break
+    except ValueError:
+        print("You need to enter any decimal number")
+
+print(f"So, your name is {name} & your age is {age}")
 
 # Variable datatype viewer [$name is a String & $age is an Integer] in <class 'DATATYPE'> format
-print (type(name), type(age))
+print(f"{name} is a {type(name)} datatype & {age} is a {type(age)} datatype")
+
+# Series of integer-based Conditions
+Req_Age = 18
+
+print("Read the conditional result of your age below")
+
+if age < Req_Age:
+    print("You're not Mature yet")
+elif age == Req_Age:
+    print("You're newly Mature")
+elif age == Req_Age + 1:
+    print("You already became Mature in the last year")
+else:
+    y_num = ["two", "three", "four", "five"]
+    for i in range(0, 4):
+        if age == Req_Age + i + 2:
+            print(f"You already became Mature {y_num[i]} years ago")
+            break
+    else:
+        print("You had became Mature several years ago")
 
 # Delete the variable out of existence
 del name
 
 # Input datatype variable. This will give you a text field option. You can then print that out
-outpost = input("You can write anything here to print it out! ")
-print (outpost)
+outpost = input("Write anything here & print it out: ")
+print(f'you have written, "{outpost}"\n\n')
 
 # Conditional logical inputs
+print("Let's do some basic maths!")
+
 while True:
     try:
-        firstNum = int(input("Provide your 1st number"))
+        firstNum = int(input("1st number: "))
         break
     except ValueError:
-        print ("Please enter an integer")
+        print("Please enter an integer")
 while True:
     try:
-        secondNum = int(input("Provide your 2nd number"))
+        secondNum = int(input("2nd number: "))
         break
     except ValueError:
-        print ("Please enter an integer")
+        print("Please enter an integer")
 
 
-print (f"The boolean value below will tell the inequality-relation of the given numbers ({firstNum},{secondNum}) correctly & legitimately")
-print(f"They are equal to each other: {firstNum == secondNum}")
-print(f"Opposite -> They aren't equal to each other: {firstNum != secondNum}")
-print(f"First Number is greater than the Second: {firstNum > secondNum}")
-print(f"Second Number is greater than the First: {firstNum < secondNum}")
+print(
+f"""\n\nThe boolean values given below
+will tell you the inequality-relation of
+the given numbers ({firstNum}, {secondNum})
+correctly & legitimately\n"""
+)
 
-# These only prints out the given Strings & basic operations of given numbers
-print(f"This is Addition of {firstNum} & {secondNum}:")
-print(firstNum+secondNum)
-print(f"This is Subtraction of {firstNum} & {secondNum}:")
-print(firstNum-secondNum)
-print(f"This is Multiplication of {firstNum} & {secondNum}:")
-print(firstNum*secondNum)
 if firstNum > secondNum:
-    print(f"This is lesser Exponentiation of {firstNum} & {secondNum}:")
-    print(firstNum**secondNum)
-    print(f"This is improper fraction (x>1) of {firstNum} & {secondNum}:")
-    print(firstNum/secondNum)
-    print(f"This is Floor (Integer based Quotient) of {firstNum} & {secondNum}:")
-    print(firstNum//secondNum)
-    print(f"This is Modulus (Remainder) of {firstNum} & {secondNum}:")
-    print(firstNum%secondNum)
+    print(f"First Number is greater than the Second one\n")
 elif firstNum < secondNum:
-    print(f"This is greater Exponentiation of {secondNum} & {firstNum}:")
-    print(firstNum**secondNum)
-    print(f"This is proper fraction (0<x<1) of {secondNum} & {firstNum}:")
-    print(firstNum/secondNum)
-    print(f"This is Floor (Integer based Quotient) of {secondNum} & {firstNum} (which is logically Zero):")
-    print(firstNum//secondNum)
-    print(f"This is Modulus (Remainder) of {secondNum} & {firstNum} (which is the given 2nd Number = {secondNum}:")
-    print(firstNum%secondNum)
+    print(f"Second Number is greater than the First one\n")
+else:
+    print(f"The pair of numbers are equal to each other\n")
+
+sent_part = ["This is the ", f" of {firstNum} & {secondNum}: "]
+op_names = [
+    "Addition",
+    "Subtraction",
+    "Multiplication",
+    "lesser Exponentiation",
+    "improper fraction (x>1)",
+    "Floor (Integer based Quotient)",
+    "greater Exponentiation",
+    "proper fraction (0<x<1)",
+]
+op_calc = [
+    firstNum + secondNum,
+    firstNum - secondNum,
+    firstNum * secondNum,
+    firstNum ** secondNum,
+    firstNum / secondNum,
+    firstNum // secondNum,
+]
+S = [sent_part, op_names, op_calc]
+r = [S[0][0], S[0][1], S[1][i], S[2][i]]
+# These prints out the given Strings & basic operations of given numbers
+# by interpolating array elements as a list of strings (through multiple interpolatory layers)
+for i in range(0, 3):
+    print(f"{r[0]+r[2]+r[1]}({r[3]}).\n")
+    continue
+
+if firstNum > secondNum:
+    for i in range(3, 6):
+        print(f"{r[0]+r[2]+r[1]}({r[3]}).\n")
+        continue
+
+elif firstNum < secondNum:
+    print(f"{r[0]+S[1][5]+r[1]}(0).\n")
+    print(f"{r[0]+S[1][6]+r[1]}({S[2][3]}).\n")
+    print(f"{r[0]+S[1][7]+r[1]}({S[2][4]}).\n")
+
 elif secondNum == 1:
     print("No other operation is necessary in this case")
+
 elif firstNum == secondNum:
-    print(f"This is the Power tower of Second Order (^^2) for {firstNum} (Hence, 1st Number {firstNum} = 2nd Number {secondNum}):")
-    print(firstNum**secondNum)
-    print(f"This is unitary fraction (0<x<1) of {secondNum} & {firstNum} (which logically results in One):")
-    print(f"Floor (Integer based Quotient) = 1; doesn't matter in this case")
-    print(f"This is Modulus (Remainder) of {secondNum} & {firstNum} (which is logically Zero):")
-    print(firstNum%secondNum)
+    print(
+        f"This is the Power tower of Second Order (^^2) for {firstNum} (Hence, 1st Number {firstNum} = 2nd Number {secondNum}):"
+    )
+    print(firstNum ** secondNum)
+    print(
+        f"The fraction (0<x<1) of {secondNum} & {firstNum} = 1 logically, which is unitary\n\n"
+    )
 
-# Series of integer-based Conditions
-Req_Age = 18
-while True:
-    try:
-        Your_Age = int(input("Provide your curent Age honestly"))
-        if 0<= Your_Age <=120:
-            break
-        else:
-            print ("Please enter a legitimate age")
-    except ValueError:
-        print ("Please enter an integer")
-
-print (f"Your age is {Your_Age}. Read the conditional result below")
-
-if Your_Age < Req_Age:
-    print("You're not Mature yet")
-elif Your_Age == Req_Age:
-    print("You're newly Mature")
-elif Your_Age <= (Req_Age+1) & Your_Age > Req_Age: 
-    print("You already became Mature a year ago")
-elif Your_Age <= (Req_Age+2) & Your_Age > (Req_Age+1): 
-    print("You already became Mature two years ago")
-elif Your_Age <= (Req_Age+3) & Your_Age > (Req_Age+2): 
-    print("You already became Mature three years ago")
-else:
-    print("You had became Mature several years ago")
 
 # How to refine multiple errors by defining an external (user-built) function
 
+defined_string = (
+    "Repeated VAR(DataType==p0STRING) 4 times to fix spelling issue ALL AT ONCE!"
+)
+
+
 def pr_string_var():
-    variable = "Repeated VAR(DataType==p0STRING) 4 times to fix spelling issue ALL AT ONCE!"
-    print(variable)
-    print(variable)
-    print(variable)
-    print(variable)
+    variable = defined_string
+    print(f"{variable}\n" * 4)
+
 
 pr_string_var()
 print("~~END of Repetitions~~")
 
 # Alternate Method of the same definer function
 
-def pr_string_var(text):
-    print(text)
-    print(text)
-    print(text)
-    print(text)
 
-pr_string_var("Repeated VAR(DataType==p0STRING) 4 times to fix spelling issue ALL AT ONCE!")
+def pr_string_var(text):
+    print(f"{text}\n" * 4)
+
+
+pr_string_var(defined_string)
 print("~~END of Repetitions~~")
 
-#This will return Name & Age by giving that pair of info
-def Class(name, age):
-    print(f"That means, your name is {name} & your age is {age}")
-
-Class(int(input("Your name?")), 
-    str(input("Your age?")))
-
-#While Loop
+# While Loop
 print("~~Odd numbers below Ten~~")
-x=1
-while x<10:
+x = 1
+while x < 10:
     print(x)
-    x=x+2
+    x = x + 2
+    continue
+del x
+# For Loop
+print("~~Odd numbers between Ten & Twenty~~")
+x = 11
+for x in range(10, 20):
+    while 10 < x < 20:
+        print(x)
+        x = x + 2
+        continue
 
-#For Loop
-print("~~All numbers between Ten & Twenty~~")
-for x in range(11, 20):
-    print(x)
-
-#Array Integration in Loop
+# Array Integration in the for-Loop
 WeekDays = ["Fri", "Satur", "Sun", "Mon", "Tues", "Wednes", "Thurs"]
 
 for d in WeekDays:
     print(f"Today is {d}day")
+
+
+print("This is a basic password generator")
+passlen = int(input("Length of password? (should be <75):"))
+s = "abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()?"
+p = "".join(random.sample(s, passlen))
+print(p)
