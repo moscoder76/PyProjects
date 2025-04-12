@@ -91,16 +91,16 @@ op_calc = [
     firstNum // secondNum,
 ]
 S = [sent_part, op_names, op_calc]
-r = [S[0][0], S[0][1], S[1][i], S[2][i]]
+r = [S[0][0], S[0][1]]
 # These prints out the given Strings & basic operations of given numbers
 # by interpolating array elements as a list of strings (through multiple interpolatory layers)
 for i in range(0, 3):
-    print(f"{r[0]+r[2]+r[1]}({r[3]}).\n")
+    print(f"{r[0]+S[1][i]+r[1]}({S[2][i]}).\n")
     continue
 
 if firstNum > secondNum:
     for i in range(3, 6):
-        print(f"{r[0]+r[2]+r[1]}({r[3]}).\n")
+        print(f"{r[0]+S[1][i]+r[1]}({S[2][i]}).\n")
         continue
 
 elif firstNum < secondNum:
