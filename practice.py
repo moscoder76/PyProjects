@@ -156,11 +156,8 @@ while x < 10:
 del x
 # For Loop
 print("~~Odd numbers between Ten & Twenty~~")
-x = 11
-for x in range(10, 20):
-    while 10 < x < 20:
-        print(x)
-        x = x + 2
+for i in range(11, 20, 2):
+        print(i)
         continue
 
 # Array Integration in the for-Loop
